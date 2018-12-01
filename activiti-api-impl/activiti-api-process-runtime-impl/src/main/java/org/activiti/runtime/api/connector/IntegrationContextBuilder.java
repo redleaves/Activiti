@@ -85,7 +85,8 @@ public class IntegrationContextBuilder {
 
         List<VariableDefinition> inBoundVariableDefinitions = actionDefinition == null ? null : actionDefinition.getInputs();
         if(variablesMatchHelper != null) {
-            return variablesMatchHelper.match(execution.getVariables(), inBoundVariableDefinitions);
+            return variablesMatchHelper.matchInput(execution, execution.getVariables(),
+                    inBoundVariableDefinitions);
         }else{
             return execution.getVariables();
         }
